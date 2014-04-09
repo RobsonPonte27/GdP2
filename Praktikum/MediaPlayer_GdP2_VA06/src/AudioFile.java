@@ -1,4 +1,34 @@
 
 public class AudioFile {
+	
+	//attributes
+	
+	String pathname;
+	String filename;
+	
+	//constructors
+	
+	public AudioFile () {
+		
+		pathname = "";
+		filename = "";
+		
+	}
 
+    //getters
+	
+	public String getPathname () {
+		return pathname;
+	}
+	
+	public String getFilename () {
+		return filename;
+	}
+	
+	public void parsePathname (String pathname) {
+		
+	}
+	
+	
+	
 }

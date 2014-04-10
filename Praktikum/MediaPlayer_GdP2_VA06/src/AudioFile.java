@@ -5,6 +5,8 @@ public class AudioFile {
 	
 	String pathname;
 	String filename;
+	String author;
+	String title;
 	
 	//constructors
 	
@@ -12,6 +14,9 @@ public class AudioFile {
 		
 		pathname = "";
 		filename = "";
+		author = "";
+		title = "";
+		
 		
 	}
 
@@ -24,6 +29,14 @@ public class AudioFile {
 	
 	public String getFilename () {
 		return filename;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+	
+	public String getTitle() {
+		return title;
 	}
 	
 	
@@ -68,10 +81,16 @@ public class AudioFile {
 		// convertiere buffer
 		this.pathname = buffer.toString();
 		filename = pathname.substring(pathname.lastIndexOf(java.io.File.separatorChar)+1);
+		}
+	
+	public void parseFilename (String filename) {
 		
-		System.out.println(pathname);
+	// Entfernung von leerzeichen und angegebenen pfad in musik titel 
+		
+		if (filename.contains(" ")) { 
+			
+		}
+	
 	}
-	
-	
-	
 }
+

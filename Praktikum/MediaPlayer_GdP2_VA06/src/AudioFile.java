@@ -88,7 +88,7 @@ public class AudioFile {
 	// Entfernung von leerzeichen und angegebenen pfad in musik titel 
 		
 		if (filename.contains(" ")) { 
-			
+			git 
 		}
 	
 	}

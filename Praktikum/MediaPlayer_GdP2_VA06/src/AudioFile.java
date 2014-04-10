@@ -47,7 +47,6 @@ public class AudioFile {
 		pathname = buffer.toString();
 		
 		System.out.println(pathname);
-		
 	}
 	
 	

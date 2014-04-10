@@ -30,6 +30,28 @@ public class AudioFile {
 	// public methods
 	public void parsePathname (String pathname) {
 		
+		// sonderfall nur leerzeichen
+		if (pathname.trim().length() == 0){
+			this.pathname = pathname;
+			filename = pathname;
+			return;
+		}
+		
+		// sonderfall nur datei
+		if (!pathname.contains(java.io.File.separator)) {
+			this.pathname = pathname;
+			filename = pathname;
+			return;
+		}
+		
+		// sonderfall laufwerkname vor dateinamen
+		if (pathname.contains(":")) {
+			pathname = pathname.replace(':', java.io.File.separatorChar);
+			pathname = java.io.File.separator + pathname;
+		}
+		
+		// ab hier pfad und datei
+		
 		// slashes richten
 		pathname = pathname.replace('\\', java.io.File.separatorChar);
 		pathname = pathname.replace('/', java.io.File.separatorChar);
@@ -44,7 +66,8 @@ public class AudioFile {
 		}
 		
 		// convertiere buffer
-		pathname = buffer.toString();
+		this.pathname = buffer.toString();
+		filename = pathname.substring(pathname.lastIndexOf(java.io.File.separatorChar)+1);
 		
 		System.out.println(pathname);
 	}

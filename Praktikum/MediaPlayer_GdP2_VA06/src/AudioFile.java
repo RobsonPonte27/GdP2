@@ -83,14 +83,41 @@ public class AudioFile {
 		filename = pathname.substring(pathname.lastIndexOf(java.io.File.separatorChar)+1);
 		}
 	
-	public void parseFilename (String filename) {
+	public void parseFilename (String fileName) {
 		
-	// Entfernung von leerzeichen und angegebenen pfad in musik titel 
+		// Sonderfälle
 		
-		if (filename.contains(" ")) { 
-			git 
+		if (fileName.equals("-")) {
+			author = "";
+			title = "-";
+			return;
+			}
+		
+		if (fileName.equals(" - ")) {
+			author = "";
+			title = "";
+			return;
+			}
+		
+		if (fileName.startsWith(".")) {
+			author = "";
+			title = "";
+			return;
+			}
+		
+		if (!fileName.contains(" - ")) { 
+			author = "";
+			title = fileName.substring(0, fileName.lastIndexOf("."));
+			return;
+		}
+		// Trennen von Titel und Author
+		
+		title = fileName.substring(fileName.lastIndexOf(" - ")+3, fileName.lastIndexOf(".")).trim();
+		author = fileName.substring(0, fileName.lastIndexOf(" - ")).trim();
+					
 		}
 	
+	
+	
 	}
-}
 

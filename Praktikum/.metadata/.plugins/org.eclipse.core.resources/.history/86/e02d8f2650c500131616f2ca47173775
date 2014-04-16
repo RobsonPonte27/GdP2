@@ -1,6 +1,4 @@
-import java.io.File;
-
-public abstract class AudioFile {
+public class AudioFile {
 
 	// attributes
 
@@ -26,22 +24,10 @@ public abstract class AudioFile {
 		this();
 
 		parsePathname(file);
-		parseFilename(this.filename);
-		
-		File check = new File(this.getPathname());
-		if (!check.canRead()) {
-			throw new RuntimeException("Cant´t read File: " + this.getPathname());
-			}	
-		}
+		parseFilename(filename);
 
-	// abstract methodes
-	
-	public abstract void play();
-	public abstract void togglePause();
-	public abstract void stop();
-	public abstract String getFormattedDuration();
-	public abstract String getFormattedPosition();
-	
+	}
+
 	// getters
 
 	public String getPathname() {

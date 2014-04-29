@@ -1,3 +1,5 @@
+import java.util.Map;
+
 import studiplayer.basic.BasicPlayer;
 import studiplayer.basic.TagReader;
 
@@ -36,10 +38,9 @@ public class TaggedFile extends AudioFile {
 	}
 	
 	public void readAndStoreTags(String pathname) {
-		Map<String, Object> tap_map = TagReader.readTags(pathname);
+		Map<String, Object> tag_map = TagReader.readTags(pathname);
 		for (String key : tag_map.keySet()) { 
-			
-		}
+			}
 	}
 	
 	

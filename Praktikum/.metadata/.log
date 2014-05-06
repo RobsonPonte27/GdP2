@@ -978,3 +978,31 @@ Java Model Exception: Java Model Status [Index out of bounds]
 	at java.lang.Thread.run(Thread.java:744)
 !SUBENTRY 1 org.eclipse.jdt.core 4 980 2014-05-06 14:10:04.477
 !MESSAGE Index out of bounds
+!SESSION 2014-05-06 14:49:16.850 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jdt.core 4 0 2014-05-06 14:50:02.222
+!MESSAGE Invalid ZIP archive: lib/jl1.0.jar [in MediaPlayer_GdP2_VA07]
+
+!ENTRY org.eclipse.jdt.core 4 0 2014-05-06 14:50:02.270
+!MESSAGE Invalid ZIP archive: lib/jogg-0.0.7.jar [in MediaPlayer_GdP2_VA07]
+
+!ENTRY org.eclipse.jdt.core 4 0 2014-05-06 14:50:02.272
+!MESSAGE Invalid ZIP archive: lib/jorbis-0.0.15.jar [in MediaPlayer_GdP2_VA07]
+
+!ENTRY org.eclipse.jdt.core 4 0 2014-05-06 14:50:02.272
+!MESSAGE Invalid ZIP archive: lib/mp3spi1.9.4.jar [in MediaPlayer_GdP2_VA07]
+
+!ENTRY org.eclipse.jdt.core 4 0 2014-05-06 14:50:02.273
+!MESSAGE Invalid ZIP archive: lib/studiplayer.jar [in MediaPlayer_GdP2_VA07]
+
+!ENTRY org.eclipse.jdt.core 4 0 2014-05-06 14:50:02.274
+!MESSAGE Invalid ZIP archive: lib/tritonus_share.jar [in MediaPlayer_GdP2_VA07]
+
+!ENTRY org.eclipse.jdt.core 4 0 2014-05-06 14:50:02.275
+!MESSAGE Invalid ZIP archive: lib/vorbisspi1.0.2.jar [in MediaPlayer_GdP2_VA07]

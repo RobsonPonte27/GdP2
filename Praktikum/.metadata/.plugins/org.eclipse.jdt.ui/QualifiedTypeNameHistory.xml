@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="studiplayer.basic.BasicPlayer"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="studiplayer.basic.TagReader"/>
+<fullyQualifiedTypeName name="studiplayer.basic.WavParamReader"/>
 </qualifiedTypeNameHistroy>

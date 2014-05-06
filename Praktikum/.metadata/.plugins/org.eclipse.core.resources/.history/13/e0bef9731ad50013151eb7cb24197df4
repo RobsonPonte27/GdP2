@@ -27,28 +27,22 @@ public abstract class AudioFile {
 
 		parsePathname(file);
 		parseFilename(this.filename);
-
+		
 		File check = new File(this.getPathname());
 		if (!check.canRead()) {
-			throw new RuntimeException("Cant´t read File: "
-					+ this.getPathname());
+			throw new RuntimeException("Cant´t read File: " + this.getPathname());
+			}	
 		}
-	}
 
 	// abstract methodes
-
+	
 	public abstract void play();
-
 	public abstract void togglePause();
-
 	public abstract void stop();
-
 	public abstract String getFormattedDuration();
-
 	public abstract String getFormattedPosition();
-
-	public abstract String[] fields();
-
+	public abstract String[] fields ();
+	
 	// getters
 
 	public String getPathname() {
@@ -89,6 +83,7 @@ public abstract class AudioFile {
 			return;
 		}
 
+
 		// slashes richten
 
 		pathname = pathname.replace('\\', java.io.File.separatorChar);
@@ -98,8 +93,7 @@ public abstract class AudioFile {
 
 		if (pathname.contains(":")) {
 			pathname = pathname.replace(':', java.io.File.separatorChar);
-			pathname = java.io.File.separator + pathname.substring(0, 1)
-					+ pathname.substring(2);
+			pathname = java.io.File.separator + pathname.substring(0, 1) + pathname.substring(2);
 		}
 
 		// doppelte slashes sollen rausfallen
@@ -112,7 +106,7 @@ public abstract class AudioFile {
 				ib++;
 			}
 		}
-
+		
 		// convertiere Puffer
 		pathname = buffer.toString().substring(1);
 
@@ -123,9 +117,9 @@ public abstract class AudioFile {
 			filename = pathname;
 			return;
 		}
-
+		
 		// sonderfall nur pfad
-		if (pathname.endsWith(java.io.File.separator)) {
+		if(pathname.endsWith(java.io.File.separator)) {
 			this.pathname = pathname;
 			filename = "";
 			return;
@@ -143,9 +137,8 @@ public abstract class AudioFile {
 	public void parseFilename(String fileName) {
 
 		// Sonderfälle
-		if (fileName.trim().isEmpty())
-			return;
-
+		if (fileName.trim().isEmpty()) return;
+		
 		if (fileName.equals("-")) {
 			author = "";
 			title = "-";
@@ -177,3 +170,4 @@ public abstract class AudioFile {
 
 	}
 }
+

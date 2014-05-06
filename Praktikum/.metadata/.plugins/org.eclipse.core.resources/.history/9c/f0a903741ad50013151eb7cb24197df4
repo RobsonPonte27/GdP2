@@ -70,7 +70,7 @@ public class TaggedFile extends SampledFile {
 
 	// Auto-Generation
 
-	public String[] fields() {
+	public String[] fields() { 
 		String[] fields = { author, title, album, this.getFormattedDuration() };
 		return fields;
 	}

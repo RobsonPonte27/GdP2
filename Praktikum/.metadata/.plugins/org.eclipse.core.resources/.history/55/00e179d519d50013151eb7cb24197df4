@@ -1,10 +1,11 @@
 import java.util.Map;
 
+import studiplayer.basic.BasicPlayer;
 import studiplayer.basic.TagReader;
 
 public class TaggedFile extends SampledFile {
 
-	protected String album;
+	public String album;
 
 	// constructors
 
@@ -71,7 +72,7 @@ public class TaggedFile extends SampledFile {
 	// Auto-Generation
 
 	public String[] fields() {
-		String[] fields = { author, title, album, this.getFormattedDuration() };
-		return fields;
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

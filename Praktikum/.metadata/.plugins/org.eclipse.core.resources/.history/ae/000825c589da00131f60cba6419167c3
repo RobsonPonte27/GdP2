@@ -1,0 +1,116 @@
+package studiplayer.audio;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.io.File;
+
+@SuppressWarnings("serial")
+public class PlayList extends LinkedList<AudioFile> {
+
+	private int position = 0;
+	private boolean randomposition;
+
+	public PlayList() {
+		super();
+		this.randomposition = false;
+	}
+
+	public PlayList(String pathname) {
+		this();
+		this.loadFromM3U(pathname);
+
+	}
+
+	public int getCurrent() {
+		return position;
+
+	}
+
+	public void setCurrent(int current) {
+		this.position = current;
+
+	}
+
+	public AudioFile getCurrentAudioFile() {
+
+		if ((position < 0) || (position >= this.size()))
+			return null;
+		else
+			return this.get(this.position);
+
+	}
+
+	public void changeCurrent() {
+
+		if (this.position == this.size() - 1) {
+			this.position = 0;
+			if (randomposition == true) {
+				Collections.shuffle(this);
+			}
+
+		} else
+			this.position++;
+
+	}
+
+	public void setRandomOrder(boolean randomOrder) {
+		this.randomposition = randomOrder;
+
+		if (randomposition != false) {
+			Collections.shuffle(this);
+		}
+	}
+
+	public void saveAsM3U(String pathname) {
+
+		FileWriter writer = null;
+		int i;
+
+		try {
+			writer = new FileWriter(pathname);
+			for (i = 0; i < this.size(); i++) {
+				writer.write(this.get(i).getPathname()
+						+ System.getProperty("line.separator"));
+			}
+		} catch (IOException e) {
+			throw new RuntimeException("Unable to write to file" + pathname
+					+ e.getMessage());
+		} finally {
+			try {
+				writer.close();
+			} catch (Exception e) {
+
+			}
+
+		}
+
+	}
+
+	public void loadFromM3U(String pathname) {
+		Scanner scanner = null;
+		String line;
+		try {
+			scanner = new Scanner(new File(pathname));
+
+			while (scanner.hasNextLine()) {
+				line = scanner.nextLine();
+				if (line.trim().length() > 0 && line.charAt(0) != '#') {
+					this.add(AudioFileFactory.getInstance(line));
+				}
+			}
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				scanner.close();
+			} catch (Exception e) {
+
+			}
+		}
+
+	}
+
+}

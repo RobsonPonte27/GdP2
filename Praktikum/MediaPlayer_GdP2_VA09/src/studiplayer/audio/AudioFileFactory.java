@@ -1,0 +1,28 @@
+package studiplayer.audio;
+
+public class AudioFileFactory {
+
+	public static AudioFile getInstance(String pathname)
+			throws NotPlayableException {
+		String name;
+		name = pathname;
+		name = name.substring(name.lastIndexOf('.'));
+		name = name.toLowerCase();
+
+		if (name.equals(".mp3") | name.equals(".ogg")) {
+			return new TaggedFile(pathname);
+		}
+
+		else if (name.equals(".wav")) {
+			return new WavFile(pathname);
+		}
+
+		else {
+			throw new NotPlayableException(pathname,
+					"Unknow suffix for AudioFile: \"" + pathname + "\"");
+
+		}
+
+	}
+
+}
